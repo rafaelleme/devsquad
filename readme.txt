@@ -1,0 +1,1 @@
+- To perform migrations normally, you will need to change the charset and collation of the config/database.php file from utf8bm4 to utf8

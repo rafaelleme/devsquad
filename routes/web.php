@@ -11,6 +11,17 @@
 |
 */
 
+
 Route::get('/', function () {
     return view('welcome');
+});
+
+Auth::routes();
+
+// Routes Ecommerce
+Route::get('/home', 'HomeController@index')->name('home');
+
+// Routes Admin
+Route::prefix('admin')->middleware(['auth'])->group(function () {
+	Route::get('/','Admin\HomeController@index');
 });

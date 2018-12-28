@@ -1,0 +1,9 @@
+.agis-medium{
+	font: 500 14px 'Agis';
+	letter-spacing: 1.5px;
+}
+
+.form-control{
+	outline: none !important;
+	box-shadow: none !important;
+}
