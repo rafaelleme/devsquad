@@ -1,9 +1,9 @@
-@extends('layouts.app')
+@extends('layouts.app-admin')
 
 @section('content')
 
 <div class="container">
-    <div class="row justify-content-center">
+    <div class="row justify-content-center admin-logo">
         <img src="{{ asset('img/logo.png') }}" alt="Logo Vintage - Vintage Ecommerce">
     </div>
     
@@ -13,7 +13,7 @@
                
                 @csrf
                
-                <div class="form-group row">
+                <div class="form-group row admin-input">
                     <div class="col-md-12">
                         <input id="email" type="email" class="form-control agis-medium {{ $errors->has('email') ? 'is-invalid' : '' }}" name="email" value="{{ old('email') }}" placeholder="Email" required autofocus autocomplete="off">
                        
@@ -26,7 +26,7 @@
                     </div>
                 </div>
 
-                <div class="form-group row">
+                <div class="form-group row admin-input">
                     <div class="col-md-12">
                         <input id="password" type="password" class="form-control agis-medium {{ $errors->has('password') ? 'is-invalid' : '' }}" name="password" placeholder="Password" required>
 
@@ -47,9 +47,9 @@
 
                 <div class="form-group row justify-content-center">
                     <a class="btn btn-link" href="{{ route('register') }}">
-                        SingUp
+                        <b>SingUp</b>
                     </a>
-                </div>
+                </div>                
             </form>
         </div>
     </div>

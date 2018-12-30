@@ -1,3 +1,11 @@
+#app{
+	background: white;
+}
+
+.navbar-laravel{
+	box-shadow: 0px 0px 10px 1px rgba(0,0,0,0.25);
+}
+
 .agis-medium{
 	font: 500 14px 'Agis';
 	letter-spacing: 1.5px;
@@ -6,4 +14,57 @@
 .form-control{
 	outline: none !important;
 	box-shadow: none !important;
+}
+
+.admin-bg{
+	background: #fafafa;
+}
+
+.admin-logo{
+	margin: 60px 0;
+}
+
+.admin-input{
+	margin-bottom: 30px;
+}
+
+.admin-rights{
+	margin-top: 130px;
+}
+
+.admin-menu-singout{
+	margin-left: 10px;
+	margin-top: 8px;
+}
+
+.admin-menu h3{
+	font-size: 25px;
+	margin-bottom: 20px;
+	margin-left: 30px;
+}
+
+.admin-menu>ul>li{
+	margin-bottom: 15px;
+}
+
+.admin-menu>ul>li>a{
+	font-size: 18px;
+	font-weight: 400;
+	color: black;
+	transition: all .3s;
+}
+
+.admin-menu>ul>li>a:hover{
+	text-decoration: none;
+	opacity: .5;
+	transition: all .3s;
+	margin-left: 3px;
+}
+
+.admin-product-list{
+	width: 100%;
+	margin-top: 30px;
+	background: white;
+	padding: 10px 25px;
+	box-shadow: 0px 0px 10px 1px rgba(0,0,0,0.15);
 }

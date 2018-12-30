@@ -55,16 +55,38 @@
         </nav>
         @endif
 
-        <main class="py-4">
+        <main class="py-4 {{ Auth::user() ? 'admin-bg' : '' }}">
             <div class="container-fluid">
                 <div class="row">
                     @if (Auth::user())
-                        <div class="col-sm-3">
-                            <h3 class="agis-medium">MENU</h3>
+                        <div class="col-sm-3 col-lg-2 admin-menu agis-medium">
+                            <h3>MENU</h3>
+                            <ul class="list-group list-unstyled">
+                                <li>
+                                    <a href="{{ route('products.index') }}">PRODUCTS</a>
+                                </li>
+                                <li>
+                                    <a href="javascript:;">ORDERS</a>
+                                </li>
+                                <li>
+                                    <a href="javascript:;">CUSTOMERS</a>
+                                </li>
+                                <li>
+                                    <a href="javascript:;">ANALYTICS</a>
+                                </li>
+                                <li>
+                                    <a href="javascript:;">DISCOUNTS</a>
+                                </li>
+                                <li>
+                                    <a href="javascript:;">APPS</a>
+                                </li>
+                            </ul>
                         </div>
                     @endif
-
                     @yield('content')
+                </div>
+                <div class="row justify-content-center admin-rights agis-medium">
+                    <strong>2018 Vintage - All rights reserved.</strong>
                 </div>
             </div>
         </main>

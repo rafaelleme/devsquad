@@ -18,10 +18,9 @@ Route::get('/', function () {
 
 Auth::routes();
 
-// Routes Ecommerce
-Route::get('/home', 'HomeController@index')->name('home');
-
 // Routes Admin
 Route::prefix('admin')->middleware(['auth'])->group(function () {
 	Route::get('/','Admin\HomeController@index');
+
+	Route::resource('products', 'ProductController');
 });
