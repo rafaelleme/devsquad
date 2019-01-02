@@ -5,6 +5,7 @@ namespace App\Console\Commands;
 use Illuminate\Console\Command;
 use App\Http\Controllers\ImportController;
 use App\ProductImport;
+use App\Mail\SendMailUser;
 
 class ImportProducts extends Command
 {
@@ -49,7 +50,14 @@ class ImportProducts extends Command
                 $path = storage_path('app/import/product/' . $archive->name);
 
                 $res = $import->productCsv($path);
-            } 
+
+                $mailUser = New SendMailUser();
+
+                $mailUser->setLines($res);
+
+
+                Mail::to()->send($mailUser);
+            }
         }
     }
 }

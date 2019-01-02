@@ -17,6 +17,8 @@ class ImportController extends Controller
 
     	$row = 0;
 
+    	$lines = [];
+
     	while (($data = fgetcsv($archive, 1000, ';')) !== FALSE) {
 
     		if (!$row) {
@@ -43,9 +45,9 @@ class ImportController extends Controller
 		    		]);
 	    		}
 
-	    		echo "Line {$row} was successfully imported \n";
+	    		$lines['success'][] = $row;
     		} catch (Exception $e) {
-    			echo "Line {$row} could not be imported";
+    			$lines['error'][] = $row;
     			$row++;
     			continue;
     		}
@@ -53,6 +55,8 @@ class ImportController extends Controller
 	        
 	        $row++;
     	}
+
+    	return $lines;
 
     }
 
