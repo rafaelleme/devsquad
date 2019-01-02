@@ -99,3 +99,125 @@
 	font-size: 16px;
 	display: block;
 }
+
+/* app-header */
+
+.app-freeshiping{
+	background: black;
+	color: white;
+	text-align: center;
+	width: 100%;
+	padding: 6px 3px 3px 3px;
+}
+
+.app-freeshiping h2{
+	font-size: 15px;
+	margin: 0;
+	letter-spacing: 2px;
+}
+
+.app-menu{
+	padding: 10px 0;
+	background: white;
+}
+
+.app-menu nav ul{
+	margin-top: 20px;
+}
+
+.app-menu nav ul li{
+	font-size: 11px;
+}
+
+.app-menu nav ul li a{
+	text-decoration: none;
+	color: black;
+	transition: all .3s;
+}
+
+.app-menu nav ul li a:hover{
+	opacity: .8;
+	font-size: 12px;
+	transition: all .3s;
+}
+
+.app-menu #search{
+	border-color: transparent;
+	border-bottom:solid 2px black;
+	border-radius: 0;
+}
+
+.app-search{
+	position: relative;
+}
+
+.app-search input{
+	position: relative;
+	top: 12px;
+}
+
+.app-search a{
+	position:absolute;
+	right: 0;
+	top: 12px;
+}
+
+.app-area a{
+	color: black;
+	font-size: 11px;
+	transition: all .3s;
+}
+
+.app-area a:hover{
+	opacity: .8;
+	text-decoration: none;
+	transition: all .3s;
+}
+
+.app-area img{
+	margin-top: 10px;
+}
+
+/* app-footer */
+.app-footer-bg{
+	background: black;
+	padding: 60px 0;
+}
+
+.app-footer{
+	color: white;
+}
+
+.app-footer h3{
+	margin-bottom: 20px;
+	font-size: 20px;
+}
+
+.app-footer ul li{
+	font-size: 14px;
+	margin-bottom: 15px;
+}
+
+.app-footer ul li a{
+	color: white;
+	transition: all .3s;
+}
+
+.app-footer ul li a:hover{
+	text-decoration: none;
+	opacity: .8;
+	transition: all .3s;
+}
+
+.app-footer-contact, .app-footer-contact a{
+	color: white;
+}
+
+.app-footer-contact a:hover{
+	text-decoration: none;
+}
+
+.app-footer-contact div:nth-of-type(2){
+	text-align: right;
+	font-size: 16px;
+}

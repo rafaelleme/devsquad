@@ -12,15 +12,13 @@
 */
 
 
-Route::get('/', function () {
-    return view('welcome');
-});
+Route::get('/','HomeController@index');
 
 Auth::routes();
 
 // Routes Admin
 Route::prefix('admin')->middleware(['auth'])->group(function () {
-	Route::get('/','Admin\HomeController@index');
+	Route::get('/','Admin\HomeController@index')->name('admin');
 
 	Route::resource('products', 'ProductController');
 
