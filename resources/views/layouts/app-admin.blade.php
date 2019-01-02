@@ -11,7 +11,7 @@
 
     <!-- Scripts -->
     <script src="{{ asset('js/app.js') }}" defer></script>
-
+    
     <!-- Fonts -->
     <link rel="dns-prefetch" href="//fonts.gstatic.com">
     <link href="https://fonts.googleapis.com/css?family=Nunito" rel="stylesheet" type="text/css">
@@ -19,8 +19,28 @@
     <!-- Styles -->
     <link href="{{ asset('css/app.css') }}" rel="stylesheet">
     <link href="{{ asset('css/main.css') }}" rel="stylesheet">
+
+    <!-- Jquery -->
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.11.3/jquery.min.js"></script>
+
+    <!-- Select2 -->
+    <link href="{{ asset('js/select2/dist/css/select2.min.css') }}" rel="stylesheet">
+    <script src="{{ asset('js/select2/dist/js/select2.min.js') }}" defer></script>
+
+    <!-- Dropzone -->
+    <script src="https://rawgit.com/enyo/dropzone/master/dist/dropzone.js"></script>
+    <link rel="stylesheet" href="https://rawgit.com/enyo/dropzone/master/dist/dropzone.css">
+
+    <!-- Mask -->
+    <script src="{{ asset('js/mask/jquery.mask.min.js') }}"></script>
+
+    <!-- Swal -->
+    <script src="https://unpkg.com/sweetalert/dist/sweetalert.min.js"></script>
+
+    <script type="text/javascript">var APP_URL = {!! json_encode(url('/')) !!}</script>
 </head>
 <body>
+
     <div id="app">
 
         @if (Auth::user())
@@ -91,5 +111,6 @@
             </div>
         </main>
     </div>
+    <script src="{{ asset('js/main.js') }}"></script>
 </body>
 </html>

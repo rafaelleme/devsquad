@@ -23,4 +23,7 @@ Route::prefix('admin')->middleware(['auth'])->group(function () {
 	Route::get('/','Admin\HomeController@index');
 
 	Route::resource('products', 'ProductController');
+
+	Route::post('products/upload','ProductController@upload')->name('product-upload');
+	Route::post('products/upload-csv','ProductController@uploadCsv')->name('product-upload-csv');
 });

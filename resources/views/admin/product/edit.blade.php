@@ -4,16 +4,18 @@
 
 <div div class="col-sm-7 col-lg-8">
 
-	<form method="POST" action="{{ route('products.store') }}">
+	<form method="POST" action="{{ route('products.update',$product->id) }}">
 
 		@csrf
+
+		<input type="hidden" name="_method" value="PUT" />
 
 		<div class="row">
 			<div class="col-sm-12">
 				<button type="submit" class="btn btn-primary agis-medium mr-3">SAVE</button>
 				<a href="{{ route('products.index') }}" class="btn btn-secondary agis-medium mr-3">CANCEL</a>
-				<!-- <a class="btn btn-danger agis-medium mr-4">DELETE</a> -->
-				<!-- <a class="btn btn-primary agis-medium ml-4">PREVIEW</a> -->
+				<button type="button" onclick="Main.deleteProduct();" class="btn btn-danger agis-medium mr-4">DELETE</button>
+				<a class="btn btn-primary agis-medium ml-4">PREVIEW</a>
 			</div>
 		</div>
 
@@ -22,7 +24,7 @@
 			<div class="col-sm-5">
 				<form class="form" method="POST">
 					<div class="form-group mb-4">
-						<input type="text" name="name" class="form-control agis-medium" placeholder="Product Name" value="{{ old('name') }}" />
+						<input type="text" name="name" class="form-control agis-medium" placeholder="Product Name" value="{{ $product->name }}" />
 						@if ($errors->has('name'))
 							<span class="validation-laravel text-danger" role="alert">
 	                            <strong>{{ $errors->first('name') }}</strong>
@@ -31,7 +33,7 @@
 					</div>
 
 					<div class="form-group mb-4">
-						<input type="text" name="subName" class="form-control agis-medium" placeholder="Product Sub Name" value="{{ old('subName') }}" />
+						<input type="text" name="subName" class="form-control agis-medium" placeholder="Product Sub Name" value="{{ $product->subName }}" />
 						@if ($errors->has('subName'))
 							<span class="validation-laravel text-danger" role="alert">
 	                            <strong>{{ $errors->first('subName') }}</strong>
@@ -40,7 +42,7 @@
 					</div>
 
 					<div class="form-group mb-4">
-						<input data-mask="99.99" type="text" name="price" class="form-control agis-medium price" placeholder="Price" value="{{ old('price') }}" />
+						<input data-mask="99.99" type="text" name="price" class="form-control agis-medium price" placeholder="Price" value="{{ $product->price }}" />
 						@if ($errors->has('price'))
 							<span class="validation-laravel text-danger" role="alert">
 	                            <strong>{{ $errors->first('price') }}</strong>
@@ -49,7 +51,7 @@
 					</div>
 
 					<div class="form-group">
-						<textarea rows="8" name="description" class="form-control agis-medium" placeholder="Description" style="resize: none;">{{ old('description') }}</textarea>
+						<textarea rows="8" name="description" class="form-control agis-medium" placeholder="Description" style="resize: none;">{{ trim($product->description) }}</textarea>
 						@if ($errors->has('description'))
 							<span class="validation-laravel text-danger" role="alert">
 	                            <strong>{{ $errors->first('description') }}</strong>
@@ -65,9 +67,14 @@
 				</div>
 
 				<div class="admin-product-image mb-5">
-					<!-- <div class="admin-product-image-thumb float-left mr-4">
-						<img src="{{ url('/storage/products/...') }}" alt="Product 1 - Vintage Ecommerce">
-					</div> -->
+					@if (!empty($product->images))
+						@foreach ($product->images as $image)
+							<div class="admin-product-image-thumb float-left mr-4">
+								<img src="{{ url('/storage/products/' . $image->name) }}" alt="Product 1 - Vintage Ecommerce">
+							</div>
+						@endforeach
+					@endif
+					
 					<button type="button" class="btn btn-primary agis-medium float-right" data-toggle="modal" data-target="#modalUpload">ADD</button>
 					<input type="hidden" name="imgs" id="files" />
 				</div>
@@ -78,7 +85,7 @@
 						<select id="tag-s2" class="form-control agis-medium mr-3" multiple name="tags[]">
 							@if (!empty($tags))
 								@foreach ($tags as $key => $tag)
-									<option {{ old('tags') && in_array($tag->id, old('tags')) ? 'selected' : '' }} value="{{ $tag->id }}">{{ $tag->name }}</option>
+									<option {{ in_array($tag->id, $productTags) ? 'selected' : '' }} value="{{ $tag->id }}">{{ $tag->name }}</option>
 								@endforeach
 							@endif
 						</select>
@@ -100,6 +107,12 @@
 
 		</div>
 
+	</form>
+
+	<form id="formDelete" method="POST" action="{{ route('products.destroy',$product->id) }}">
+		@csrf
+
+		<input type="hidden" name="_method" value="DELETE" />
 	</form>
 
 </div>
