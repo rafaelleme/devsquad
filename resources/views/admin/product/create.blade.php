@@ -40,7 +40,7 @@
 					</div>
 
 					<div class="form-group mb-4">
-						<input data-mask="99.99" type="text" name="price" class="form-control agis-medium price" placeholder="Price" value="{{ old('price') }}" />
+						<input type="text" name="price" class="form-control agis-medium price" placeholder="Price" value="{{ old('price') }}" />
 						@if ($errors->has('price'))
 							<span class="validation-laravel text-danger" role="alert">
 	                            <strong>{{ $errors->first('price') }}</strong>

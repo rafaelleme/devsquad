@@ -11,10 +11,11 @@
 |
 */
 
+Auth::routes();
 
 Route::get('/','HomeController@index');
 
-Auth::routes();
+Route::get('/product/{product}','ProductController@list');
 
 // Routes Admin
 Route::prefix('admin')->middleware(['auth'])->group(function () {

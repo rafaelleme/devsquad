@@ -43,10 +43,6 @@ var Main = {
 		    dictDefaultMessage: "Drop or click input to upload a CSV file"
 		};
 
-
-		/* Jquery Mask */
-		$('.price').mask('999999.99',{reverse: true});
-
 	},
 	deleteProduct: function (id) {
 		swal({
@@ -63,7 +59,6 @@ var Main = {
 			}
 		});
 	}
-
 };
 
 Main.init();

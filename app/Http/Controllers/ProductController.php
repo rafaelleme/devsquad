@@ -235,4 +235,17 @@ class ProductController extends Controller
             ]);
         } 
     }
+
+    public function list(Product $product)
+    {
+        $tags = [];
+
+        if (!empty($product->tags)) {
+            foreach ($product->tags as $tag) {
+                $tags[] = Tag::find($tag->tag_id)->name;
+            }
+        }
+
+        return view('product',['product' => $product,'tags' => $tags]);
+    }
 }

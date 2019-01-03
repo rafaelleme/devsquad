@@ -21,7 +21,7 @@
     <link href="{{ asset('css/main.css') }}" rel="stylesheet">
 
     <!-- Jquery -->
-    <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.11.3/jquery.min.js"></script>
+    <script src="https://code.jquery.com/jquery-3.2.1.min.js"></script>
 
     <!-- Select2 -->
     <link href="{{ asset('js/select2/dist/css/select2.min.css') }}" rel="stylesheet">

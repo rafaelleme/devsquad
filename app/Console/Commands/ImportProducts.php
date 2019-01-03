@@ -55,7 +55,6 @@ class ImportProducts extends Command
 
                 $mailUser->setLines($res);
 
-
                 Mail::to()->send($mailUser);
             }
         }
